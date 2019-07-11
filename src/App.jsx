@@ -8,21 +8,24 @@ import StreamEdit from './components/StreamEdit';
 import Header from './Header';
 
 
-function App () {
-    return(
-       <Router>
-        <div className = 'ui container'>
-        <Header />
-        <Switch>
-            <Route path = '/Streams/edit' component = { StreamEdit } />
-            <Route path = '/Streams/delete' component = { StreamDelete } />
-            <Route path = '/Streams/new' component = { StreamCreate } />
-            <Route path='/Streams/show' component = { StreamShow } />    
-            <Route excat = {true}  path='/' component = { StreamList } />
-        </Switch>    
-        </div>
-      </Router>  
-    )
+
+function AppRouter() {
+  return (
+    <Router>
+      <div>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={ StreamList } />
+        <Route path="/Streams/new" component={ StreamCreate } />
+        <Route path="/Streams/show/" excat component={ StreamShow } />
+        <Route path="/Streams/delete/" exact component={ StreamDelete } />
+        <Route path="/Streams/edit/" excat component={StreamEdit} />
+      </Switch>
+      </div>
+    </Router>
+  );
 }
 
-export default App;
+export default AppRouter;
+
+
